@@ -118,7 +118,7 @@ class ProductDownloadView(View):
         can_download = False
         user_ready  = True
         if download_obj.user_required:
-            if not request.user.is_authenticated():
+            if not request.user.is_authenticated:
                 user_ready = False
 
         purchased_products = Product.objects.none()

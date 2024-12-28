@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from billing.models import BillingProfile
 
 ADDRESS_TYPES = (
@@ -8,7 +8,7 @@ ADDRESS_TYPES = (
 )
 
 class Address(models.Model):
-    billing_profile = models.ForeignKey(BillingProfile)
+    billing_profile = models.ForeignKey(BillingProfile, on_delete=models.CASCADE)
     name            = models.CharField(max_length=120, null=True, blank=True, help_text='Shipping to? Who is it for?')
     nickname        = models.CharField(max_length=120, null=True, blank=True, help_text='Internal Reference Nickname')
     address_type    = models.CharField(max_length=120, choices=ADDRESS_TYPES)

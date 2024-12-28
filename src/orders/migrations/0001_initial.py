@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('status', models.CharField(choices=[('created', 'Created'), ('paid', 'Paid'), ('shipped', 'Shipped'), ('refunded', 'Refunded')], default='created', max_length=120)),
                 ('shipping_total', models.DecimalField(decimal_places=2, default=5.99, max_digits=100)),
                 ('total', models.DecimalField(decimal_places=2, default=0.0, max_digits=100)),
-                ('cart', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='carts.Cart')),
+                ('cart', models.ForeignKey(on_delete=models.CASCADE, to='carts.Cart')),
             ],
         ),
     ]

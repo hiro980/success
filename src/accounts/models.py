@@ -1,6 +1,6 @@
 from datetime import timedelta
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
@@ -134,7 +134,7 @@ class EmailActivationManager(models.Manager):
 
 
 class EmailActivation(models.Model):
-    user            = models.ForeignKey(User)
+    user            = models.ForeignKey(User, on_delete=models.CASCADE)
     email           = models.EmailField()
     key             = models.CharField(max_length=120, blank=True, null=True)
     activated       = models.BooleanField(default=False)

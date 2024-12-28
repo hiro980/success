@@ -5,9 +5,9 @@ from django.db.models.signals import post_save, pre_save
 from .utils import Mailchimp
 
 class MarketingPreference(models.Model):
-    user                        = models.OneToOneField(settings.AUTH_USER_MODEL)
+    user                        = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     subscribed                  = models.BooleanField(default=True)
-    mailchimp_subscribed        = models.NullBooleanField(blank=True)
+    mailchimp_subscribed         = models.BooleanField(null=True, blank=True)
     mailchimp_msg               = models.TextField(null=True, blank=True)
     timestamp                   = models.DateTimeField(auto_now_add=True)
     updated                      = models.DateTimeField(auto_now=True)

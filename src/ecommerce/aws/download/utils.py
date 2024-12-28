@@ -1,9 +1,10 @@
-import boto
+import boto3
 import re
 import os
 
 from django.conf import settings
-from boto.s3.connection import OrdinaryCallingFormat
+from botocore.client import Config
+
 
 
 class AWSDownload(object):
@@ -21,12 +22,12 @@ class AWSDownload(object):
         super(AWSDownload, self).__init__(*args, **kwargs)
 
     def s3connect(self):
-        conn = boto.s3.connect_to_region(
+        conn = boto3.connect_to_region(
                 self.region,
                 aws_access_key_id=self.access_key, 
                 aws_secret_access_key=self.secret_key,
                 is_secure=True,
-                calling_format=OrdinaryCallingFormat()
+                calling_format=Config()
             )
         return conn
 

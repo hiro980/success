@@ -24,9 +24,9 @@ class Migration(migrations.Migration):
                 ('refunded', models.BooleanField(default=False)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('billing_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='billing.BillingProfile')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='products.Product')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('billing_profile', models.ForeignKey(on_delete=models.CASCADE, to='billing.BillingProfile')),
+                ('product', models.ForeignKey(on_delete=models.CASCADE, to='products.Product')),
+                ('user', models.ForeignKey(blank=True, null=True, on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(

@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('country', models.CharField(default='United States of America', max_length=120)),
                 ('state', models.CharField(max_length=120)),
                 ('postal_code', models.CharField(max_length=120)),
-                ('billing_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='billing.BillingProfile')),
+                ('billing_profile', models.ForeignKey(on_delete=models.CASCADE, to='billing.BillingProfile')),
             ],
         ),
     ]

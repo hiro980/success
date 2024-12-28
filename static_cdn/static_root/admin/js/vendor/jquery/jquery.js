@@ -5284,7 +5284,7 @@ function domManip( collection, args, callback, ignored ) {
 
 							// Optional AJAX dependency, but won't run scripts if not present
 							if ( jQuery._evalUrl ) {
-								jQuery._evalUrl( node.src );
+								jQuery._evalre_path( node.src );
 							}
 						} else {
 							jQuery.globalEval( node.textContent.replace( rcleanScript, "" ) );
